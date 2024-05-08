@@ -1,7 +1,9 @@
 package dev.langchain4j.example.aiservice;
 
 import dev.langchain4j.service.spring.AiService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,12 +15,13 @@ class AssistantController {
 
     Assistant assistant;
 
+    @Autowired
     AssistantController(Assistant assistant) {
         this.assistant = assistant;
     }
 
     @GetMapping("/assistant")
-    public String assistant(@RequestParam(value = "message", defaultValue = "What is the time now?") String message) {
+    public String assistant(@RequestBody String message) {
         return assistant.chat(message);
     }
 }

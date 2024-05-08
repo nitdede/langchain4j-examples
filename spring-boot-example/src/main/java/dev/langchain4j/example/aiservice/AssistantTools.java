@@ -15,4 +15,9 @@ class AssistantTools {
     String currentTime() {
         return LocalTime.now().toString();
     }
+
+    @Tool
+    int getAddition(int a, int b) {
+        return a + b;
+    }
 }
