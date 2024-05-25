@@ -18,6 +18,14 @@ class AssistantTools {
 
     @Tool
     int getAddition(int a, int b) {
+        System.out.println("calling getAddinton");
         return a + b;
     }
+
+    @Tool
+    String getStringLength(String str) {
+        System.out.println("calling getStringLength");
+        return String.valueOf(str.length());
+    }
+
 }
